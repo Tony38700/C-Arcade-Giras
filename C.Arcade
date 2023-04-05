@@ -1,0 +1,1509 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <time.h>
+#include <unistd.h>
+#include <conio.h>
+#include <Windows.h>
+
+#define MAG   "\x1B[35m"
+#define BLU   "\x1B[34m"
+#define CYN   "\x1B[36m"
+#define YEL   "\x1B[33m"
+#define RED   "\x1B[31m"
+#define RESET "\x1B[0m"
+#define GRN   "\x1B[32m"
+
+void slow_print(char*str, int delay){
+	int i;
+	
+	for(i = 0; str[i] != '\0'; i++)
+	{
+		putchar(str[i]);
+		fflush(stdout);
+		usleep(delay*200);
+	}
+}
+
+void arcade(void);
+void menu1 (void);
+void quiz (void);
+void cobra_na_caixa (void);
+void menu_gw (void);
+void jogo_gw (void);
+
+int main(){
+	
+		menu1();
+		
+	return 0;
+}
+
+void menu1 (void){
+		setlocale (LC_ALL, "Portuguese");
+	
+	char r;
+	int x;
+	
+	do
+	{
+		
+	system("cls");
+	
+	slow_print(CYN"...Coloque em tela cheia para uma melhor experiência..."RESET, 50);
+	
+	Sleep(3000);
+	
+	system("cls");
+	
+	arcade();
+	
+	Sleep(100);
+	slow_print(MAG"1."RESET" Pergunta e Resposta\n", 100);	
+	slow_print(BLU"2."RESET" Cobra na Caixa!\n", 100);
+	slow_print(CYN"3."RESET" Gousmas War\n", 100);
+	slow_print("4. Sair \n\n"YEL"R:"RESET" ", 100);
+	scanf("%d", &x);
+		//Primeiro Jogo//
+		if(x==1)
+		{
+			system("cls");
+			slow_print("\nJogo de perguntas e respostas a fim de testar o seu conhecimento\n\n", 100);
+			slow_print("deseja iniciar?\n\n", 100);
+			Sleep(600);
+			printf("'Pressione "MAG"S"RESET" para iniciar ou qualquer tecla para recusar'\n");
+			scanf(" %c", &r);
+		
+			switch(r){
+				case 'S':
+				case 's':
+					system("cls");
+					Sleep(100);
+					slow_print("Iniciando o jogo...\n", 50);
+					Sleep(1000);
+					quiz();
+				
+				break;
+			
+				default:
+					printf("Okay, digite "YEL"0"RESET" para voltar ao menu...");
+					scanf("%d", &x);
+				}
+		}
+		//Segundo Jogo//
+		if(x==2)
+		{
+			system("cls");
+			slow_print("Temos uma caixa...cheia de cobras...se quer mesmo se aventurar não irei julgar\n\n", 25);
+			slow_print("deseja iniciar?\n\n", 25);
+			Sleep(600);
+			printf("'Pressione "BLU"S"RESET" para iniciar ou qualquer tecla para recusar'\n");
+			scanf(" %c", &r);
+		
+			switch(r){
+				case 's':
+					system("cls");
+					Sleep(100);
+					slow_print("Iniciando o jogo...\n", 50);
+					Sleep(1000);
+					cobra_na_caixa();
+					
+				break;
+			
+			
+				default:
+					printf("Okay, digite "YEL"0"RESET" para voltar ao menu...");
+					scanf("%d", &x);
+				}
+		}
+		//Terceiro jogo//
+		if(x==3)
+		{
+			system("cls");
+			slow_print("\n Nas terras de Liima as batalhas de Gousmas são a diversão principal, venha se aventurar por essas terras nesse jogo RPG de batalha multiplayer\n\n", 25);
+			slow_print("deseja iniciar?\n\n", 25);
+			Sleep(600);
+			printf("'Pressione "CYN"S"RESET" para iniciar ou qualquer tecla para recusar'\n");
+			scanf(" %c", &r);
+		
+			switch(r){
+				case 'S':
+				case 's':
+					system("cls");
+					Sleep(100);
+					slow_print("Iniciando o jogo...\n", 25);
+					Sleep(1000);
+					menu_gw();
+					
+				break;
+				
+			
+				default:
+					printf("Okay, digite "YEL"0"RESET" para voltar ao menu...");
+					scanf("%d", &x);
+				}
+		}
+		
+	}while(x==0);
+		//Opção de Sair//	
+		if(x==4)
+		{
+			Sleep(100);
+			slow_print("\n\n...Fechando Arcade ;-;...", 30);
+		}
+}
+
+void quiz (void){
+
+	system("cls");
+
+	//Função para ter acentuação nas palavras//
+	setlocale(LC_ALL, "Portuguese");
+	
+	//char do menu//
+	int y;
+	char r;
+	char resposta, resposta1, resposta2, resposta3, resposta4, resposta5, resposta6, resposta00;
+
+while (1 || r== 'c' || r== 'C')
+{
+	system("cls");
+	printf("                                                                    **************************************\n                                                                  ");
+	slow_print(MAG"  * BEM VINDO AO PERGUNTAS E RESPOSTAS *\n"RESET, 100);
+	printf("                                                                    **************************************\n\n\n");
+	slow_print(MAG"\n1."RESET"Continuar\n2.Sair\n\n"YEL"R: "RESET, 100);
+	fflush (stdin);
+	scanf ("%c", &resposta);
+	system("cls");
+	
+	if (resposta == '1') // fazer while para cada pergunta caso queira complicar
+	{
+		//primeira questão
+		printf("                                                                          ************************\n");
+		printf(MAG"                                                                          *PERGUNTAS E RESPOSTAS *\n"RESET);
+		printf("                                                                          ************************\n\n\n");
+		
+		slow_print(MAG"\n1. Qual o título do primeiro livro da coleção de books da Agatha Christie?"RESET, 25);
+		printf (MAG"\n\na)"RESET" Um corpo na biblioteca   "MAG" b)"RESET" Morte no Nilo"MAG"   c)"RESET" Assassinato no Expresso Oriente  "MAG" d)"RESET" Os elefantes não esquecem\n\n"YEL"R: "RESET);
+		fflush (stdin);
+		scanf ("%c", &resposta1);
+		
+		if ((resposta1 == 'a' ) || (resposta1 == 'c') || (resposta1 == 'd') || (resposta1 == 'A' ) || (resposta1 == 'C') || (resposta1 == 'D'))
+		{
+			printf (RED"      *nope*  "RESET"R: b)");
+			Sleep (500);
+			system("cls");
+			continue;
+		}
+		else if ((resposta1 == 'b') || (resposta1 == 'B'))
+		{
+			printf ("correto "YEL":D \n"RESET);
+			Sleep (500);
+			system("cls");
+		}
+		else
+		{
+			printf (RED"*resposta invalida*"RESET" - boa tentativa Girotto >:D \n");
+			Sleep (1500);
+			system("cls");
+			continue;
+		}
+ 
+		//segunda questao	
+		printf("                                                                          ************************\n");
+		printf(MAG"                                                                          *PERGUNTAS E RESPOSTAS *\n"RESET);
+		printf("                                                                          ************************\n\n\n");
+		
+			slow_print(MAG"\n2. Em que banda Brian May tocava?"RESET, 25);
+			printf (MAG"\n\na)"RESET" The Cure   "MAG"b)"RESET" Fleetwood Mac  "MAG"c)"RESET" Queen   "MAG"d)"RESET" ACDC\n\n"YEL"R: "RESET, resposta2);
+			fflush(stdin);
+			scanf ("%c", &resposta2);
+		
+		if ((resposta2 == 'a' ) || (resposta2 == 'b') || (resposta2 == 'd') || (resposta2 == 'A' ) || (resposta2 == 'B') || (resposta2 == 'D'))
+			{
+				printf (RED"      *nope*  "RESET"R: c)");
+				Sleep (500);
+				system("cls");
+				continue;
+			}
+		else if ((resposta2 == 'c') || (resposta2 == 'C'))
+		{
+			printf ("correto "YEL":D"RESET" \n");
+			Sleep (500);
+			system("cls");
+		}
+		
+		else 
+			{
+			printf (RED"*resposta invalida*"RESET" - boa tentativa Girotto >:D \n");
+			Sleep (1500);
+			system("cls");
+			continue;
+			}
+			
+		//terceira questão
+		printf("                                                                          ************************\n");
+		printf(MAG"                                                                          *PERGUNTAS E RESPOSTAS *\n"RESET);
+		printf("                                                                          ************************\n\n\n");
+		slow_print(MAG"\n3. Em que cidade nasceu o movimento renascentista?"RESET, 25);
+		printf (MAG"\n\na)"RESET" Pisa   "MAG"b)"RESET" Roma   "MAG"c)"RESET" Paris   "MAG"d)"RESET" Florença\n\n"YEL"R:"RESET" ");
+		fflush (stdin); //espaço entre aspas " %c" mesma função - de acordo com o adler
+		scanf ("%c", &resposta3); 
+		
+		if ((resposta3 == 'a' ) || (resposta3 == 'b') || (resposta3 == 'c') || (resposta3 == 'A' ) || (resposta3 == 'B') || (resposta3 == 'C'))
+		{
+			printf (RED"      *nope*  "RESET"R: d)");
+			Sleep (500);
+			system("cls");
+			continue;
+		}
+		
+		else if ((resposta3 == 'd') || (resposta3 == 'D'))
+		{
+			printf ("correto "YEL":D"RESET" \n");
+			Sleep (500);
+			system("cls");
+		}
+		
+		else
+		{
+			printf (RED"*resposta invalida*"RESET" - boa tentativa Girotto >:D \n");
+			Sleep (1500);
+			system("cls");
+			continue;
+		}
+		
+		//quarta questão
+		printf("                                                                          ************************\n");
+		printf(MAG"                                                                          *PERGUNTAS E RESPOSTAS *\n"RESET);
+		printf("                                                                          ************************\n\n\n");
+		slow_print(MAG"\n4. Onde fica a ilha de creta?"RESET, 25);
+		printf (MAG"\n\na)"RESET" Grécia    "MAG"b)"RESET" Italia   "MAG"c)"RESET" Malta   "MAG"d)"RESET" Turquia\n\n"YEL"R: "RESET);
+		fflush (stdin); 
+		scanf ("%c", &resposta4); 
+		
+		if ((resposta4 == 'b' ) || (resposta4 == 'c') || (resposta4 == 'd') || (resposta4 == 'B' ) || (resposta4 == 'C') || (resposta4 == 'D'))
+		{
+			printf (RED"      *nope*"RESET"  R: a)");
+			Sleep (500);
+			system("cls");
+			continue;
+		}
+		
+		else if ((resposta4 == 'a') || (resposta4 == 'A'))
+		{
+			printf ("correto "YEL":D"RESET" \n");
+			Sleep (500);
+			system("cls");
+		}
+		
+		else
+		{
+			printf (RED"*resposta invalida*"RESET" - boa tentativa Girotto >:D \n");
+			Sleep (1500);
+			system("cls");
+			continue;
+		}	
+		//quinta questão
+		printf("                                                                          ************************\n");
+		printf(MAG"                                                                          *PERGUNTAS E RESPOSTAS *\n"RESET);
+		printf("                                                                          ************************\n\n\n");
+		slow_print(MAG"\n5. Qual a localização da ISS?"RESET, 25);
+		printf (MAG"\n\na)"RESET" Estratosfera   "MAG"b)"RESET" Mesosfera   "MAG"c)"RESET" Troposfera   "MAG"d)"RESET" Exosfera\n\n"YEL"R: "RESET);
+		fflush (stdin); 
+		scanf ("%c", &resposta5); 
+		
+		if ((resposta5 == 'a' ) || (resposta5 == 'b') || (resposta5 == 'd') ||(resposta5 == 'A' ) || (resposta5 == 'B') || (resposta5 == 'D'))
+		{
+			printf (RED"      *nope*  "RESET"R: c)");
+			Sleep (500);
+			system("cls");
+			continue;
+		}
+		
+		else if ((resposta5 == 'c') || (resposta5 == 'C'))
+		{
+			printf ("correto "YEL":D"RESET" \n");
+			Sleep (500);
+			system("cls");
+		}
+		
+		else
+		{
+			printf (RED"*resposta invalida*"RESET" - boa tentativa Girotto >:D \n");
+			Sleep (1500);
+			system("cls");
+			continue;
+		}	
+		//sexta questão
+		printf("                                                                          ************************\n");
+		printf(MAG"                                                                          *PERGUNTAS E RESPOSTAS *\n"RESET);
+		printf("                                                                          ************************\n\n\n");
+		slow_print(MAG"\n6. Qual o valor da derivada de x²?"RESET, 25);
+		printf (MAG"\n\na)"RESET" x - 2    "MAG"b)"RESET" 4x   "MAG"c)"RESET" x/2   "MAG"d)"RESET" 2x\n\n"YEL"R: "RESET);
+		fflush (stdin); 
+		scanf ("%c", &resposta6); 
+		
+		if ((resposta6 == 'a' ) || (resposta6 == 'b') || (resposta6 == 'c') || (resposta6 == 'A' ) || (resposta6 == 'B') || (resposta6 == 'C'))
+		{
+			printf (RED"      *nope*  "RESET"R : d)");
+			Sleep (500);
+			system("cls");
+			continue;
+		}
+		
+		else if ((resposta6 == 'd') || (resposta6 == 'D'))
+		{
+			printf ("correto "YEL":D"RESET" \n");
+			Sleep (500);
+			slow_print(YEL"\nPARABÉNS VOCÊ ACERTOU TODAS AS QUESTÕES!"RESET, 25);
+			Sleep (2000);
+			system("cls");
+		}
+		
+		else
+		{
+			printf (RED"*resposta invalida*"RESET" - boa tentativa Girotto >:D \n");
+			Sleep (1500);
+			system("cls");
+			continue;
+		}	
+		
+			
+	}
+	
+	else if(resposta=='2')
+	{
+		slow_print("Poxa vida... até outro dia ;-;\n", 100);
+		Sleep(800);
+		menu1();
+		break;
+	}
+
+	else
+	{
+		system("cls");
+		printf("Reposta inválida, escolha uma das opções");
+		Sleep(2000);
+	}
+	
+}
+}
+
+void cobra_na_caixa (void){
+	
+	system("cls");
+	setlocale(LC_ALL, "Portuguese");        
+	
+	srand(time(NULL));
+	
+	char player1[100], player2[100], r;
+	
+	char x;
+	
+	int caixa_botao = rand() % 5 + 1;
+	int caixa_cobra = rand() % 5 + 1;
+	
+	while(caixa_cobra == caixa_botao)
+	{
+		caixa_cobra = rand() % 5 + 1;
+	}
+	
+	slow_print("                                                                    *******************************\n                                                                  ", 5);
+	slow_print(BLU"  * BEM VINDO AO COBRA NA CAIXA *\n"RESET, 100);
+	printf("                                                                    *******************************\n\n\n", 5);
+	slow_print("Digite o nome do jogador "BLU"1: "RESET, 50);
+	scanf("%s", &player1);
+	slow_print("Digite o nome do jogador "CYN"2: "RESET, 50);
+	scanf(" %s", &player2);
+	
+	slow_print("\n                                          Existe "YEL"5"RESET" caixas, uma contém a sua "CYN"salvação"RESET" e uma a sua "BLU"morte... "RESET"escolha com sabedoria",100);
+	
+	Sleep(3000);
+	
+	int caixa_escolhida;
+	
+	do
+	{
+		system("cls");
+	
+		while(1)
+		{
+		system("cls");
+		Sleep(300);
+		printf("                                                                                  ******************\n");
+		printf(BLU"                                                                                  * COBRA NA CAIXA *\n"RESET);
+		printf("                                                                                  ******************\n\n\n");
+		Sleep(400);
+		
+		//turno 1//
+		
+			printf("\n\n\nJogador %s ,escolha uma "YEL"caixa"RESET" para abir: \n\n\n\n\n\n", player1);
+		
+			printf(BLU"          Caixa 1                       caixa 2                       caixa 3                       caixa 4                       caixa 5 \n\n"RESET);
+			printf("      _------------_                _------------_                _------------_                _------------_                _------------_        \n");
+			printf("    _|              |_            _|              |_            _|              |_            _|              |_            _|              |_      \n");
+			printf("  _|       ____       |_        _|       ____       |_        _|       ____       |_        _|       ____       |_        _|       ____       |_    \n");
+			printf(" |=========|__|=========|      |=========|__|=========|      |=========|__|=========|      |=========|__|=========|      |=========|__|=========|   \n");
+			printf(" |==========--==========|      |==========--==========|      |==========--==========|      |==========--==========|      |==========--==========|   \n");
+			printf(" |          |=|         |      |          |=|         |      |          |=|         |      |          |=|         |      |          |=|         |   \n");
+			printf(" |_         |=|        _|      |_         |=|        _|      |_         |=|        _|      |_         |=|        _|      |_         |=|        _|   \n");
+			printf("  |_________|=|________|        |_________|=|________|        |_________|=|________|        |_________|=|________|        |_________|=|________|    \n");
+			scanf("%d", &caixa_escolhida);
+		
+			if (caixa_escolhida == caixa_botao)
+				{
+					system("cls");
+					
+					printf("                                                                                  ******************\n");
+					printf(BLU"                                                                                  * COBRA NA CAIXA *\n"RESET);
+					printf("                                                                                  ******************\n\n\n");
+		
+					slow_print(YEL"PARABÉNS! "RESET, 25);
+					printf("%s", player1);
+					slow_print(YEL",você achou o botão e conseguiu sair vivo...diferente do seu parceiro...MAS VOCÊ VENCEU!\n\n\n\n"RESET, 25);
+					
+					printf("        _-------===------_                              \n");
+					printf("      _|        |_|       |_                            \n");
+					printf("     |                      |                           \n");
+					printf("     |       "YEL"  botão  "RESET"      |                           \n");
+					printf("     |                      |                           \n");	
+					printf("     |==========--==========|                           \n");
+					printf("     |          |=|         |                           \n"); 
+					printf("     |_         |=|        _|                           \n");  
+					printf("      |_________|=|________|                        \n\n\n"); 
+					
+					Sleep(1000);
+					printf("Digite "BLU"C"RESET" para continuar ou qualquer tecla para sair\n");
+					scanf(" %s", &x);
+					
+					switch(x)
+					{
+						case 'C':
+						case 'c':
+							system("Cls");
+							slow_print("Reiniciando o jogo...", 100);
+							Sleep (600);
+							
+							break;
+						
+						default:
+							slow_print("Voltando ao menu principal...", 100);
+							menu1();
+					}
+					break;
+				}
+		
+			else if (caixa_escolhida == caixa_cobra)
+				{
+					
+					printf("                                                                                  ******************\n");
+					printf(BLU"                                                                                  * COBRA NA CAIXA *\n"RESET);
+					printf("                                                                                  ******************\n\n\n");
+					
+					slow_print("Que azar ", 25);
+					printf(" %s", player1);
+					slow_print(", você abriu a caixa com a cobra (XoX). Infelizmente, você perdeu  \n\n\n\n", 25);
+			
+					printf("        _-------===------_                      \n");
+					printf("      _|        |_|       |_                    \n");
+					printf("     |                      |                   \n");
+					printf("     |       "GRN"  cobra"RESET"        |                   \n");
+					printf("     |                      |                   \n");
+					printf("     |==========--==========|                   \n");
+					printf("     |          |=|         |                   \n"); 
+					printf("     |_         |=|        _|                   \n");  
+					printf("      |_________|=|________|                \n\n\n"); 
+					
+					Sleep(1000);
+					printf("Digite "BLU"C"RESET" para continuar ou qualquer tecla para sair\n");
+					scanf(" %s", &x);
+					
+					switch(x)
+					{
+						case 'C':
+						case 'c':
+							system("Cls");
+							slow_print("Reiniciando o jogo...", 100);
+							Sleep (600);
+							
+							break;
+						
+						default:
+							slow_print("Voltando ao menu principal...", 100);
+							menu1();
+					}
+					
+					break;
+				}
+	
+			else if(caixa_escolhida != caixa_botao && caixa_escolhida != caixa_cobra)
+				{
+					system("cls");
+					
+					slow_print("Não tem nada na caixa, tente novamente. \n\n\n\n", 25);
+					printf("        _-------===------_      \n");
+					printf("      _|        |_|       |_    \n");
+					printf("     |                      |   \n");
+					printf("     |                      |   \n");
+					printf("     |                      |   \n");
+					printf("     |==========--==========|   \n");
+					printf("     |          |=|         |   \n"); 
+					printf("     |_         |=|        _|   \n");  
+					printf("      |_________|=|________|    \n"); 
+					
+					Sleep(2000);
+				}
+				
+			else
+				{
+					slow_print(RED"*Escolha inválida*"RESET", tente novamente", 15);
+				}
+				
+				//turno 2//
+				
+					printf("\n\n\nJogador %s ,escolha uma caixa para abir: \n\n\n\n\n\n", player2);
+		
+			printf(BLU"          Caixa 1                       caixa 2                       caixa 3                       caixa 4                       caixa 5 \n\n"RESET);
+			printf("      _------------_                _------------_                _------------_                _------------_                _------------_        \n");
+			printf("    _|              |_            _|              |_            _|              |_            _|              |_            _|              |_      \n");
+			printf("  _|       ____       |_        _|       ____       |_        _|       ____       |_        _|       ____       |_        _|       ____       |_    \n");
+			printf(" |=========|__|=========|      |=========|__|=========|      |=========|__|=========|      |=========|__|=========|      |=========|__|=========|   \n");
+			printf(" |==========--==========|      |==========--==========|      |==========--==========|      |==========--==========|      |==========--==========|   \n");
+			printf(" |          |=|         |      |          |=|         |      |          |=|         |      |          |=|         |      |          |=|         |   \n");
+			printf(" |_         |=|        _|      |_         |=|        _|      |_         |=|        _|      |_         |=|        _|      |_         |=|        _|   \n");
+			printf("  |_________|=|________|        |_________|=|________|        |_________|=|________|        |_________|=|________|        |_________|=|________|    \n");
+			scanf("%d", &caixa_escolhida);
+		
+			if (caixa_escolhida == caixa_botao)
+				{
+					system("cls");
+					
+					printf("                                                                                  ******************\n");
+					printf("                                                                                  * COBRA NA CAIXA *\n");
+					printf("                                                                                  ******************\n\n\n");
+		
+					slow_print(YEL"PARABÉNS"RESET, 25);
+					printf("%s", player2);
+					slow_print(YEL",você achou o botão e conseguiu sair vivo...diferente do seu parceiro...MAS VOCÊ VENCEU!\n\n\n\n"RESET, 25);
+					
+					printf("        _-------===------_                              \n");
+					printf("      _|        |_|       |_                            \n");
+					printf("     |                      |                           \n");
+					printf("     |        "YEL" botão"RESET"        |                           \n");
+					printf("     |                      |                           \n");	
+					printf("     |==========--==========|                           \n");
+					printf("     |          |=|         |                           \n"); 
+					printf("     |_         |=|        _|                           \n");  
+					printf("      |_________|=|________|                        \n\n\n"); 
+					
+					Sleep(1000);
+					printf("Digite "BLU"C"RESET" para continuar ou qualquer tecla para sair\n");
+					scanf(" %s", &x);
+					
+					switch(x)
+					{
+						case 'C':
+						case 'c':
+							system("Cls");
+							slow_print("Reiniciando o jogo...", 100);
+							Sleep (600);
+							
+							break;
+						
+						default:
+							slow_print("Voltando ao menu principal...", 100);
+							menu1();
+					}
+					break;
+				}
+		
+			else if (caixa_escolhida == caixa_cobra)
+				{
+					
+					printf("                                                                                  ******************\n");
+					printf("                                                                                  * COBRA NA CAIXA *\n");
+					printf("                                                                                  ******************\n\n\n");
+					
+					slow_print("Que azar ", 25);
+					printf(" %s", player2);
+					slow_print(", você abriu a caixa com a cobra (XoX). Infelizmente, você perdeu  \n\n\n\n", 25);
+			
+					printf("        _-------===------_                      \n");
+					printf("      _|        |_|       |_                    \n");
+					printf("     |                      |                   \n");
+					printf("     |       "GRN"  cobra   "RESET"     |                   \n");
+					printf("     |                      |                   \n");
+					printf("     |==========--==========|                   \n");
+					printf("     |          |=|         |                   \n"); 
+					printf("     |_         |=|        _|                   \n");  
+					printf("      |_________|=|________|                \n\n\n"); 
+					
+					Sleep(1000);
+					printf("Digite "BLU"C"RESET" para continuar ou qualquer tecla para sair\n");
+					scanf(" %s", &x);
+					
+					switch(x)
+					{
+						case 'C':
+						case 'c':
+							system("Cls");
+							slow_print("Reiniciando o jogo...", 100);
+							Sleep (600);
+							
+							break;
+						
+						default:
+							slow_print("Voltando ao menu principal...", 100);
+							menu1();
+					}
+					
+					break;
+				}
+	
+			else if(caixa_escolhida != caixa_botao && caixa_escolhida != caixa_cobra)
+				{
+					system("cls");
+					
+					slow_print("Não tem nada na caixa, tente novamente. \n\n\n\n", 25);
+					printf("        _-------===------_      \n");
+					printf("      _|        |_|       |_    \n");
+					printf("     |                      |   \n");
+					printf("     |                      |   \n");
+					printf("     |                      |   \n");
+					printf("     |==========--==========|   \n");
+					printf("     |          |=|         |   \n"); 
+					printf("     |_         |=|        _|   \n");  
+					printf("      |_________|=|________|    \n"); 
+					
+					Sleep(2000);
+				}
+				
+			else
+				{
+					slow_print(RED"*Escolha inválida*"RESET", tente novamente", 15);
+				}
+		}
+		
+	}while(x=='c' || x=='C');
+}
+
+void menu_gw(void){
+	
+	system("cls");
+	
+		setlocale(LC_ALL, "Portuguese");
+	
+	char alt;
+	int x;
+	//Interação com os jogadores por perguntas e respostas para tornar mais dinâmico//
+	do
+	{
+		system("cls");
+		Sleep(200);
+		slow_print(CYN"Sejam bem vindos as terras mágicas de Liima, aposto que são viajantes com desejo por batalhas com Gousmas \n\n"RESET, 25);
+		Sleep(800);
+		printf(CYN"A)"RESET" O que são Gousmas? \n");
+		printf(CYN"B)"RESET" Uau que interessante, como funciona as batalhas? \n");
+		printf(CYN"C)"RESET" Sim, queremos batalhar \n");
+		printf(CYN"D)"RESET" sair \n");
+		scanf(" %c", &alt);
+	
+	switch(alt)
+	{
+		case 'A':
+		case 'a':
+			system("cls");
+			slow_print(YEL"As Gousmas são criaturas dóceis com a habilidade de se dividir, mas quando atacadas, entram em um estado de fúria e ficam mais fortes a cada ataque. No entanto, se uma Gousma fica muito furiosa, ela perde o controle e acaba se desintegrando.\n"RESET, 25);
+			printf("Digite 0 para voltar ");
+			scanf("%d", &x);
+			
+			break;
+		
+		case 'B':
+		case 'b':
+			system("cls");
+			Sleep(200);
+			slow_print("Durante a luta, cada participante começa com duas Gousmas em campo e com o nível de fúria igual a 1. Ao escolher uma Gousma para atacar, todo o nível de fúria do atacante é transferido para a Gousma atacada. Quando a Gousma atacada alcança um nível de fúria maior que 5, ela é desintegrada.\n", 25);
+			system("pause");
+			system("cls");
+			Sleep(200);
+			slow_print("Uma Gousma pode se dividir em duas, transferindo uma quantidade selecionada de fúria para a outra Gousma. Por exemplo, se uma única Gousma em campo tem 4 de fúria, pode ser dividida em outra Gousma passando 1 de fúria, assim, teremos uma Gousma com 3 de fúria e outra com 1 de fúria. O limite máximo de Gousmas em campo é de dois para cada participante.\n ", 25);
+			system("pause");
+			system("cls");
+			Sleep(200);
+			slow_print("O lutador pode escolher entre atacar com uma das Gousmas ou realizar a divisão. Se escolher atacar, deve selecionar qual Gousma atacará e qual será atacada.\n", 25);
+			system("pause");
+			system("cls");
+			Sleep(200);
+			slow_print("Se escolher dividir, o jogo deve verificar se há somente uma Gousma para o jogador (já que o limite máximo é de dois por jogador). Se for possível dividir, o jogador passa um valor de fúria para ser transferido para a nova Gousma.\n", 25);
+			system("pause");
+			system("cls");
+			Sleep(200);
+			slow_print(YEL"O jogador que perder todas as suas Gousmas é o perdedor...(obviamente).\n"RESET, 25);
+			printf("Digite 0 para voltar ");
+			scanf("%d", &x);
+			
+			break;
+				
+		case 'C':
+		case 'c':
+			system("cls");
+			Sleep(200);
+			slow_print("Ok, vamos lá!", 25);
+			Sleep(800);
+			jogo_gw();
+			
+			break;
+		
+		case 'D':
+		case 'd':
+			system("cls");
+			slow_print("Voltando ao menu inicial...", 25);
+			Sleep(800);
+			menu1();
+			
+			break;
+			
+		default:
+			printf("Escolha uma das opções:   ");
+			scanf(" %d", &alt);
+	}
+	} while(x == 0);
+}
+
+void jogo_gw (void){
+	
+	system("cls");
+	
+	int c4;
+	int escolhaRepetirSair; 
+	
+	do
+	{ 
+		int c1, c2, c3, c4, c5, g1, g2, g3, g4;
+		int escolhaAcao, escolhaAtaque, escolhaDefesa, escolhaDivisao, pontosPerdidos;
+		char nome1[100], nome2[100];
+		
+		fflush(stdin);
+		c1 = 0;
+		c2 = 0;
+		c3 = 0;
+		c4 = 0;
+		c5 = 0;
+		g1 = 1;
+		g2 = 1;
+		g3 = 1;
+		g4 = 1;
+		
+		fflush(stdin);	
+		slow_print("Insira o nome do jogador 1: ", 25); gets(nome1);
+		fflush(stdin);
+		slow_print("Insira o nome do jogador 2: ", 25); gets(nome2); 
+		
+		printf("\n");
+		printf("\n");
+		
+		while(1)
+		{
+			//TURN0 1
+			
+			//VERIFICACAO
+			c1 = 0;
+			c2 = 0;
+			c3 = 0;
+			c4 = 0;
+			c5 = 0;
+			
+			if(g1 > 5)
+			{
+				g1 = 0;
+			}
+			
+			if(g2 > 5)
+			{
+				g2 = 0;
+			}
+			
+			if(g3 > 5)
+			{
+				g3 = 0;
+			}
+			
+			if(g4 > 5)
+			{
+				g4 = 0;
+			}
+			
+			if(g1 == 0 && g2 == 0)
+			{
+				break;
+			}
+			
+			if(g3 == 0 && g4 == 0)
+			{
+				break;
+			}
+			
+			while(c2 != 1)
+			{
+				printf("  TURNO DE %s\n\n", nome1);
+				printf("  ---------\n");
+				printf("  |%d     %d|\n", g1, g2);
+				printf("  |       |\n");
+				printf(" >|%d     %d|<\n", g3, g4);
+				printf("  ---------\n\n");
+				
+				printf("1: Atacar\n");
+				if(g3 == 0 && g4 > 1 || g3 > 1 && g4 == 0)
+				{
+					c5 = 1;
+					if(c5 == 1)
+					{
+						printf("2: Dividir\n");
+					}
+				}
+				printf("Escolha uma opcao: ");
+				scanf("%d", &escolhaAcao); printf("\n");
+				
+				//ATAQUE
+				if(escolhaAcao == 1)
+				{
+					while(c1 != 1)
+					{
+						printf("Escolha o gousma atacante, esquerda (pressione '3') ou direita (pressione '4'), ou pressione '0' para voltar: ");
+						scanf("%d", &escolhaAtaque); printf("\n");
+						
+						if(escolhaAtaque == 0)
+						{
+							break;
+						}
+						
+						if(escolhaAtaque == 3)
+						{
+							if(g3 == 0)
+							{
+								printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+								sleep(1); printf("\n");
+								continue;
+							}
+							
+							else
+							{
+								while(1)
+								{
+									printf("Escolha o gousma para ser atacado, esquerda (pressione '1') ou direita (pressione '2'), ou pressione '0' para voltar: ");
+									scanf("%d", &escolhaDefesa); printf("\n");
+									
+									if(escolhaDefesa == 0)
+									{
+										break;
+									}
+									
+									if(escolhaDefesa == 1)
+									{
+										if(g1 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1); printf("\n");
+											continue;	
+										}
+										
+										else
+										{	
+											g1 = g1 + g3;
+											c1 = 1;
+											c2 = 1;
+											break;
+										}
+									}
+								
+									if(escolhaDefesa == 2)
+									{
+										if(g2 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1); printf("\n");
+											continue;	
+										}
+										
+										else
+										{
+											g2 = g2 + g3;
+											c1 = 1;
+											c2 = 1;
+											break;
+										}
+									}
+									
+									if(escolhaDefesa != 1 && escolhaDefesa != 2)
+									{
+										printf("Valor invalido. Digite novamente\n");
+										sleep(1); printf("\n");
+										continue;
+									}
+								}
+							}
+						}
+						
+						if(escolhaAtaque == 4)
+						{
+							if(g4 == 0)
+							{
+								printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+								sleep(1); printf("\n");
+								continue;
+							}
+							
+							else
+							{
+								while(1)
+								{
+									printf("Escolha o gousma para ser atacado, esquerda (pressione '1') ou direita (pressione '2'), ou pressione '0' para voltar: ");
+									scanf("%d", &escolhaDefesa); printf("\n");
+									
+									if(escolhaDefesa == 0)
+									{
+										break;
+									}
+									
+									if(escolhaDefesa == 1)
+									{
+										if(g1 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1);
+											printf("\n");
+											continue;
+										}
+										
+										else
+										{
+											g1 = g1 + g4;
+											c1 = 1;
+											c2 = 1;
+											break;
+										}
+									}
+									
+									if(escolhaDefesa == 2)
+									{
+										if(g2 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1);
+											printf("\n");
+											continue;
+										}
+										
+										else
+										{
+											g2 = g2 + g4;
+											c1 = 1;
+											c2 = 1;
+											break;
+										}
+									}
+									
+									if(escolhaDefesa != 1 && escolhaDefesa != 2)
+									{
+										printf("Valor invalido. Digite novamente\n");
+										sleep(1); printf("\n");
+										continue;
+									}
+								}
+							}
+						}
+						
+						if(escolhaAtaque != 3 && escolhaAtaque != 4)
+						{
+							printf("Valor invalido. Digite novamente\n");
+							sleep(1); printf("\n");
+							continue;
+						}
+					}
+				}
+				
+				//DIVISAO
+				if(escolhaAcao == 2)
+				{
+					if(c5 != 1)
+					{
+						printf("Valor invalido. Digite novamente\n");
+						sleep(1); printf("\n");
+						continue;
+					}
+					
+					else
+					{
+						while(1)
+						{
+							if(g3 > 1 && g4 == 0)
+							{
+								printf("Escolha quantos pontos o gousma 3 doara, ou pressione '0' para voltar: ");
+								scanf("%d", &pontosPerdidos); printf("\n");
+								
+								if(pontosPerdidos == 0)
+								{
+									break;
+								}
+												
+								if(pontosPerdidos >= g3)
+								{
+									printf("A doacao nao pode ser feita. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else if(pontosPerdidos <= 0)
+								{
+									printf("Valor invalido. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else
+								{
+									c2 = 1;
+									g3 = g3 - pontosPerdidos;
+									g4 = g4 + pontosPerdidos;
+									break;
+								}
+							}
+							
+							if(g3 == 0 && g4 > 1)
+							{
+								printf("Escolha quantos pontos o gousma 4 doara, ou pressione '0' para voltar: ");
+								scanf("%d", &pontosPerdidos); printf("\n");
+								
+								if(pontosPerdidos == 0)
+								{
+									break;
+								}
+												
+								if(pontosPerdidos >= g4)
+								{
+									printf("A doacao nao pode ser feita. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else if(pontosPerdidos <= 0)
+								{
+									printf("Valor invalido. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else
+								{
+									c2 = 1;
+									g4 = g4 - pontosPerdidos;
+									g3 = g3 + pontosPerdidos;
+									break;
+								}
+							}
+						}
+					}
+				}
+					
+				if(escolhaAcao != 1 && escolhaAcao != 2)
+				{
+					printf("Valor invalido. Digite novamente\n");
+					sleep(1); printf("\n");
+					continue;
+				}
+				
+			}
+			
+			//TURNO 2
+			
+			//VERIFICACAO
+			c1 = 0;
+			c2 = 0;
+			c3 = 0;
+			c4 = 0;
+			c5 = 0;
+			
+			if(g1 > 5)
+			{
+				g1 = 0;
+			}
+			
+			if(g2 > 5)
+			{
+				g2 = 0;
+			}
+			
+			if(g3 > 5)
+			{
+				g3 = 0;
+			}
+			
+			if(g4 > 5)
+			{
+				g4 = 0;
+			}
+			
+			if(g1 == 0 && g2 == 0)
+			{
+				break;
+			}
+			
+			if(g3 == 0 && g4 == 0)
+			{
+				break;
+			}
+			
+			while(c2 != 1)
+			{
+				printf("  TURNO DE %s\n\n", nome2);
+				printf("  ---------\n");
+				printf(" >|%d     %d|<\n", g1, g2);
+				printf("  |       |\n");
+				printf("  |%d     %d|\n", g3, g4);
+				printf("  ---------\n\n");
+				
+				printf("1: Atacar\n");
+				if(g1 == 0 && g2 > 1 || g1 > 1 && g2 == 0)
+				{
+					c5 = 1;
+					if(c5 == 1)
+					{
+						printf("2: Dividir\n");
+					}
+				}
+				printf("Escolha uma opcao: ");
+				scanf("%d", &escolhaAcao); printf("\n");
+				
+				//ATAQUE
+				if(escolhaAcao == 1)
+				{
+					while(c1 != 1)
+					{
+						printf("Escolha o gousma atacante, esquerda (pressione '1') ou direita (pressione '2'), ou pressione '0' para voltar: ");
+						scanf("%d", &escolhaAtaque); printf("\n");
+						
+						if(escolhaAtaque == 0)
+						{
+							break;
+						}
+						
+						if(escolhaAtaque == 1)
+						{
+							if(g1 == 0)
+							{
+								printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+								sleep(1); printf("\n");
+								continue;
+							}
+							
+							else
+							{
+								while(1)
+								{
+									printf("Escolha o gousma para ser atacado, esquerda (pressione '3') ou direita (pressione '4'), ou pressione '0' para voltar: ");
+									scanf("%d", &escolhaDefesa); printf("\n");
+									
+									if(escolhaDefesa == 0)
+									{
+										break;
+									}
+									
+									if(escolhaDefesa == 3)
+									{
+										if(g3 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1);
+											printf("\n");
+											continue;
+										}
+										
+										else
+										{
+											c1 = 1;
+											c2 = 1;
+											g3 = g3 + g1;
+											break;
+										}
+									}
+								
+									if(escolhaDefesa == 4)
+									{
+										if(g4 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1);
+											printf("\n");
+											continue;
+										}
+										
+										else
+										{
+											c1 = 1;
+											c2 = 1;
+											g4 = g4 + g1;
+											break;
+										}
+									}
+									
+									if(escolhaDefesa != 3 && escolhaDefesa != 4)
+									{
+										printf("Valor invalido. Digite novamente\n");
+										sleep(1); printf("\n");
+										continue;
+									}
+								}
+							}
+						}
+					
+						if(escolhaAtaque == 2)
+						{
+							if(g2 == 0)
+							{
+								printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+								sleep(1); printf("\n");
+								continue;
+							}
+							
+							else
+							{
+								while(1)
+								{
+									printf("Escolha o gousma para ser atacado, esquerda (pressione '3') ou direita (pressione '4'), ou pressione '0' para voltar: ");
+									scanf("%d", &escolhaDefesa); printf("\n");
+									
+									if(escolhaDefesa == 0)
+									{
+										break;
+									}
+									
+									if(escolhaDefesa == 3)
+									{
+										if(g3 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1);
+											printf("\n");
+											continue;
+										}
+										
+										else
+										{
+											c1 = 1;
+											c2 = 1;
+											g3 = g3 + g2;
+											break;
+										}
+									}
+									
+									if(escolhaDefesa == 4)
+									{
+										if(g4 == 0)
+										{
+											printf("O gousma selecionado ja foi derrotado. Escolha outro\n");
+											sleep(1);
+											printf("\n");
+											continue;
+										}
+										
+										else
+										{
+											c1 = 1;
+											c2 = 1;
+											g4 = g4 + g2;
+											break;
+										}
+									}
+									
+									if(escolhaDefesa != 3 && escolhaDefesa !=4)
+									{
+										printf("Valor invalido. Digite novamente\n");
+										sleep(1); printf("\n");
+										continue;
+									}
+								}
+							}
+						}
+						
+						if(escolhaAtaque != 1 && escolhaAtaque != 2)
+						{
+							printf("Valor invalido. Digite novamente\n");
+							sleep(1); printf("\n");
+							continue;
+						}
+					}
+				}
+				
+				//DIVISAO
+				if(escolhaAcao == 2)
+				{
+					if(c5 != 1)
+					{
+						printf("Valor invalido. Digite novamente\n");
+						sleep(1); printf("\n");
+						continue;
+					}
+					
+					else
+					{
+						while(1)
+						{
+							if(g1 > 1 && g2 == 0)
+							{
+								printf("Escolha quantos pontos o gousma 1 doara, ou pressione '0' para voltar: ");
+								scanf("%d", &pontosPerdidos); printf("\n");
+								
+								if(pontosPerdidos == 0)
+								{
+									break;
+								}
+												
+								if(pontosPerdidos >= g1)
+								{
+									printf("A doacao nao pode ser feita. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else if(pontosPerdidos <= 0)
+								{
+									printf("Valor invalido. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else
+								{
+									c2 = 1;
+									g1 = g1 - pontosPerdidos;
+									g2 = g2 + pontosPerdidos;
+									break;
+								}
+							}
+							
+							if(g1 == 0 && g2 > 1)
+							{
+								printf("Escolha quantos pontos o gousma 2 doara, ou pressione '0' para voltar: ");
+								scanf("%d", &pontosPerdidos); printf("\n");
+								
+								if(pontosPerdidos == 0)
+								{
+									break;
+								}
+												
+								if(pontosPerdidos >= g2)
+								{
+									printf("A doacao nao pode ser feita. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else if(pontosPerdidos <= 0)
+								{
+									printf("Valor invalido. Digite novamente\n");
+									sleep(1); printf("\n");
+									continue;
+								}
+												
+								else
+								{
+									c2 = 1;
+									g2 = g2 - pontosPerdidos;
+									g1 = g1 + pontosPerdidos;
+									break;
+								}
+							}
+						}
+					}
+				}
+				
+				if(escolhaAcao != 1 && escolhaAcao != 2)
+				{
+					printf("Valor invalido. Digite novamente\n");
+					sleep(1); printf("\n");
+					continue;
+				}
+			}
+		} printf("\n");
+		
+		printf(" FIM DE JOGO!\n");
+		printf("  ---------\n");
+		printf("  |%d     %d|\n", g1, g2);
+		printf("  |       |\n");
+		printf("  |%d     %d|\n", g3, g4);
+		printf("  ---------\n\n");
+		
+		slow_print("A batalha terminou! Os gousmas inimigos foram derrotados!\n\n", 25);
+		
+		if(g1 == 0 && g2 == 0)
+		{
+			printf("%s VENCEU!!!\n\n", nome1);
+		    printf("\n");
+		}
+		
+		if(g3 == 0 && g4 == 0)
+		{
+			printf("%s VENCEU!!!\n\n", nome2);
+			printf("\n");
+		}
+		
+		while(1)
+		{
+			slow_print("Digite 1 para jogar novamente ou digite 0 para voltar ao menu principal\n", 35);
+			printf("Sua escolha: ");
+			scanf("%d", &escolhaRepetirSair); printf("\n");
+			
+			if(escolhaRepetirSair == 1)
+			{
+				system("cls");
+				slow_print("Reiniciando o jogo...", 25);
+				Sleep(500);
+				system("cls");
+				break;
+			}
+			
+			if(escolhaRepetirSair == 0)
+			{
+				system("cls");
+				slow_print("Voltando ao menu...", 25);
+				Sleep(500);
+				menu1();
+				break;		
+			}
+			
+			if(escolhaRepetirSair != 1 && escolhaRepetirSair != 0)
+			{
+				printf("Valor invalido. Digite novamente\n");
+				sleep(1); printf("\n");
+				continue;
+			}
+		}
+		
+		if(c4 == 1)
+		{
+			break;
+		}
+		
+	}while(escolhaRepetirSair == 1);
+}
+
+void arcade(void){
+	
+	slow_print("********************************************************************************************************************************\n",4);
+	slow_print("********************************************************************************************************************************\n",4);
+	slow_print(MAG"**           AA"RESET BLU"            RRRRRRRRRR"RESET CYN"            CCCCCCCC"RESET MAG"               AA"RESET BLU"            DDDDDDDDDDDDDD"RESET CYN"       EEEEEEEEEEEEEEEEE"RESET MAG"  **\n"RESET,5);
+	slow_print(MAG"**          AAAA"RESET BLU"           RRRRRRRRRRR"RESET CYN"         CCCCCCCCCCCC"RESET MAG"            AAAA"RESET BLU"           DDD          DDD"RESET CYN"     EEEEEEEEEEEEEEEEE"RESET MAG"  **\n"RESET,5);
+	slow_print(MAG"**         AAAAAA"RESET BLU"          RRR      RRR"RESET CYN"      CCC          CCC"RESET MAG"         AAAAAA"RESET BLU"          DDD           DDD"RESET CYN"    EEE"RESET MAG"                **\n"RESET,5);
+	slow_print(MAG"**        AAA  AAA"RESET BLU"         RRR      RRR"RESET CYN"     CCC            CCC"RESET MAG"       AAA  AAA"RESET BLU"         DDD            DDD"RESET CYN"   EEE"RESET MAG"                **\n"RESET,5);
+	slow_print(MAG"**       AAA    AAA"RESET BLU"        RRR      RRR"RESET CYN"     CCC"RESET MAG"                     AAA    AAA"RESET BLU"        DDD            DDD"RESET CYN"   EEEEEEEEEEEEE"RESET MAG"      **\n"RESET,5);
+	slow_print(MAG"**      AAA      AAA"RESET BLU"       RRR     RRR"RESET CYN"      CCC"RESET MAG"                    AAA      AAA"RESET BLU"       DDD            DDD"RESET CYN"   EEEEEEEEEEEEE"RESET MAG"      **\n"RESET,5);
+	slow_print(MAG"**     AAAAAAAAAAAAAA"RESET BLU"      RRRRRRRRRR"RESET CYN"       CCC            CCC"RESET MAG"    AAAAAAAAAAAAAA"RESET BLU"      DDD            DDD"RESET CYN"   EEE"RESET MAG"                **\n"RESET,5);
+	slow_print(MAG"**    AAA         AAAA"RESET BLU"     RRR     RRR"RESET CYN"       CCC          CCC"RESET MAG"    AAA          AAA"RESET BLU"     DDD           DDD"RESET CYN"    EEE"RESET MAG"                **\n"RESET,5);
+	slow_print(MAG"**   AAA            AAA"RESET BLU"    RRR      RRR"RESET CYN"        CCCCCCCCCCCC"RESET MAG"     AAA            AAA"RESET BLU"    DDD          DDD"RESET CYN"     EEEEEEEEEEEEEEEEE"RESET MAG"  **\n"RESET,5);
+	slow_print(MAG"**  AAA              AAA"RESET BLU"   RRR       RRR"RESET CYN"         CCCCCCCC"RESET MAG"      AAA              AAA"RESET BLU"   DDDDDDDDDDDDDD"RESET CYN"       EEEEEEEEEEEEEEEEE"RESET MAG"  **\n"RESET,5);
+	slow_print("********************************************************************************************************************************\n",4);
+	slow_print("********************************************************************************************************************************\n\n",4);
+	
+}
